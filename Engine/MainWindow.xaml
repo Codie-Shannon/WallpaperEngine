@@ -1,0 +1,74 @@
+﻿<Window x:Class="Engine.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Engine"
+        mc:Ignorable="d"
+        Style="{DynamicResource MainWindowStyle}">
+    <Grid>
+        <Border Style="{DynamicResource MainBarBorder}">
+            <StackPanel MouseDown="StackPanel_MouseDown" Style="{DynamicResource MainBar}">
+                <Button x:Name="btnWallpaper" Content="Wallpaper" Margin="15, 5, 0, 4.6" Style="{DynamicResource PageBtn}" Click="btnWallpaper_Click"/>
+                <Button x:Name="btnDetails" Content="Details" Margin="15, 5, 0, 4.6" Style="{DynamicResource PageBtn}" Click="btnDetails_Click"/>
+                <Button x:Name="btnMinimize" Content="__" Margin="573, -20, 0, 0" Style="{DynamicResource ToolBtn}" Click="btnMinimize_Click"/>
+                <Button x:Name="btnClose" Content="X" Margin="5, 0, 0, 0" Style="{DynamicResource ToolBtn}" Click="btnClose_Click"/>
+            </StackPanel>
+        </Border>
+        <StackPanel x:Name="WallpaperTab" Visibility="Visible" Style="{DynamicResource WallpaperBody}">
+            <TextBlock x:Name="tbWallpaperTitle" Text="Wallpaper Name" Style="{DynamicResource WallpaperTitle}"/>
+            <MediaElement x:Name="meDisplayWallpaper" Source="Cosmic Wolf.mp4" Visibility="Collapsed"  MediaEnded="meDisplayWallpaper_MediaEnded" MediaFailed="meDisplayWallpaper_MediaFailed" Style="{DynamicResource DisplayWallpaper}"/>
+            <TextBlock x:Name="tbWallpaperAvailability" Text="No Wallpaper Available" Style="{DynamicResource tbWallpaperAvailability}"/>
+            <Border Style="{DynamicResource DisplayPathBorder}">
+            <TextBlock x:Name="tbDisplayPath" Text="Press browse and select a wallpaper..." Style="{DynamicResource DisplayPath1}"/>
+            </Border>
+            <Button x:Name="btnBrowse" Content="Browse" Click="btnBrowse_Click" Style="{DynamicResource BrowseBtn}"/>
+        </StackPanel>
+        <Grid x:Name="DetailsTab" Visibility="Hidden" Margin="15,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="10" />
+            </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+                <RowDefinition Height="56" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="15" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="15" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="15" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="15" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="15" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="25" />
+            </Grid.RowDefinitions>
+            <TextBlock Text="Video Information" Grid.Row="1" Style="{DynamicResource DetailsTitle}"/>
+
+            <TextBlock Text="File Name" Grid.Row="2" Style="{DynamicResource DetailsPageTitle}"/>
+            <TextBlock x:Name="tbFileName" Text="N / A" Grid.Row="3" Style="{DynamicResource DetailsText}"/>
+
+            <TextBlock Text="Path" Grid.Row="5" Style="{DynamicResource DetailsPageTitle}"/>
+            <TextBlock x:Name="tbPath" Text="N / A" Grid.Row="6" Style="{DynamicResource DetailsText}"/>
+
+            <TextBlock Text="Format" Grid.Row="8" Style="{DynamicResource DetailsPageTitle}"/>
+            <TextBlock x:Name="tbFormat" Text="N / A" Grid.Row="9" Style="{DynamicResource DetailsText}"/>
+
+            <TextBlock Text="File Size" Grid.Row="11" Style="{DynamicResource DetailsPageTitle}"/>
+            <TextBlock x:Name="tbFileSize" Text="N / A" Grid.Row="12" Style="{DynamicResource DetailsText}"/>
+
+            <TextBlock Text="Resolution" Grid.Row="14" Style="{DynamicResource DetailsPageTitle}"/>
+            <TextBlock x:Name="tbResolution" Text="N / A" Grid.Row="15" Style="{DynamicResource DetailsText}"/>
+
+            <TextBlock Text="Duration" Grid.Row="17" Style="{DynamicResource DetailsPageTitle}"/>
+            <TextBlock x:Name="tbDuration" Text="N / A" Grid.Row="18" Style="{DynamicResource DetailsText}"/>
+        </Grid>
+     </Grid>
+</Window>

@@ -1,0 +1,246 @@
+﻿<Application x:Class="Engine.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Engine"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        
+        <SolidColorBrush x:Key="null"/>
+
+
+        <SolidColorBrush x:Key="Window.Background" Color="#FF070407"/>
+        <Style x:Key="MainWindowStyle" TargetType="{x:Type Window}">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}"/>
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+            <Setter Property="Title" Value="Wallpaper Engine"/>
+            <Setter Property="Height" Value="565"/>
+            <Setter Property="Width" Value="815"/>
+            <Setter Property="ResizeMode" Value="NoResize"/>
+            <Setter Property="Background" Value="{DynamicResource Window.Background}"/>
+            <Setter Property="WindowStyle" Value="None"/>
+        </Style>
+
+
+        <SolidColorBrush x:Key="MainBarBorder.Color" Color="White"/>
+        <Style x:Key="MainBarBorder" TargetType="{x:Type Border}">
+            <Setter Property="BorderBrush" Value="{DynamicResource MainBarBorder.Color}"/>
+            <Setter Property="BorderThickness" Value="0, 0, 0, 2"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+
+
+        <SolidColorBrush x:Key="MainBar.Background" Color="#FF181818"/>
+        <Style x:Key="MainBar" TargetType="{x:Type StackPanel}">
+            <Setter Property="Background" Value="{DynamicResource MainBar.Background}"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Orientation" Value="Horizontal"/>
+        </Style>
+
+
+        <SolidColorBrush x:Key="Page.Button.Foreground" Color="#FF525252"/>
+        <SolidColorBrush x:Key="Page.Button.Foreground.Used" Color="White"/>
+        <SolidColorBrush x:Key="Page.Button.Foreground.Hover" Color="Gray"/>
+        <SolidColorBrush x:Key="Page.Button.Foreground.Pressed" Color="#FFADADAD"/>
+        <Style x:Key="PageBtn" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{StaticResource null}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource null}"/>
+            <Setter Property="TextElement.Foreground" Value="{DynamicResource Page.Button.Foreground}"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Impact"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="TextElement.Foreground" Value="{DynamicResource Page.Button.Foreground.Hover}"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="TextElement.Foreground" Value="{DynamicResource Page.Button.Foreground.Pressed}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="TextElement.Foreground" Value="{DynamicResource Page.Button.Foreground.Used}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <SolidColorBrush x:Key="Tool.Button.Foreground" Color="#FF525252"/>
+        <SolidColorBrush x:Key="Tool.Button.Foreground.Used" Color="White"/>
+        <SolidColorBrush x:Key="Tool.Button.Foreground.Hover" Color="Gray"/>
+        <SolidColorBrush x:Key="Tool.Button.Foreground.Pressed" Color="#FFADADAD"/>
+        <Style x:Key="ToolBtn" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{StaticResource null}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource null}"/>
+            <Setter Property="TextElement.Foreground" Value="{DynamicResource Page.Button.Foreground}"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="Height" Value="Auto"/>
+            <Setter Property="Width" Value="25"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="TextElement.Foreground" Value="{DynamicResource Tool.Button.Foreground.Hover}"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="TextElement.Foreground" Value="{DynamicResource Tool.Button.Foreground.Pressed}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="TextElement.Foreground" Value="{DynamicResource Tool.Button.Foreground.Used}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="WallpaperBody" TargetType="{x:Type StackPanel}">
+            <Setter Property="Height" Value="515"/>
+            <Setter Property="Width" Value="800"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+        </Style>
+
+
+        <SolidColorBrush x:Key="Wallpaper.Title.Foreground" Color="White"/>
+        <Style x:Key="WallpaperTitle" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextWrapping" Value="NoWrap"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontFamily" Value="Impact"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="TextTrimming" Value="WordEllipsis"/>
+            <Setter Property="Width" Value="700"/>
+            <Setter Property="Foreground" Value="{DynamicResource Wallpaper.Title.Foreground}"/>
+        </Style>
+
+
+        <Style x:Key="DisplayWallpaper" TargetType="{x:Type MediaElement}">
+            <Setter Property="Height" Value="395"/>
+            <Setter Property="Width" Value="700"/>
+            <Setter Property="Margin" Value="0, 6, 0, 0"/>
+            <Setter Property="IsMuted" Value="True"/>
+            <Setter Property="LoadedBehavior" Value="Manual"/>
+        </Style>
+
+
+        <Style x:Key="tbWallpaperAvailability" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextWrapping" Value="NoWrap"/>
+            <Setter Property="TextTrimming" Value="None"/>
+            <Setter Property="FontSize" Value="40"/>
+            <Setter Property="FontFamily" Value="Impact"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="0, 176, 0, 176"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+
+
+        <SolidColorBrush x:Key="DisplayPath.Border.Color" Color="White"/>
+        <Style x:Key="DisplayPathBorder" TargetType="{x:Type Border}">
+            <Setter Property="BorderBrush" Value="{DynamicResource DisplayPath.Border.Color}"/>
+            <Setter Property="BorderThickness" Value="1, 1, 1, 1"/>
+            <Setter Property="Width" Value="700"/>
+            <Setter Property="TextBlock.TextTrimming" Value="WordEllipsis"/>
+            <Setter Property="Margin" Value="0, 10, 0, 0"/>
+            <Setter Property="Padding" Value="2, 2, 2, 2"/>
+        </Style>
+
+
+        <SolidColorBrush x:Key="DisplayPath.Foreground" Color="White"/>
+        <SolidColorBrush x:Key="DisplayPath.BorderBrush" Color="White"/>
+        <Style x:Key="DisplayPath1" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextWrapping" Value="NoWrap"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontFamily" Value="Impact"/>
+            <Setter Property="Foreground" Value="{DynamicResource DisplayPath.Foreground}"/>
+            <Setter Property="TextTrimming" Value="WordEllipsis"/>
+            <Setter Property="Width" Value="700"/>
+        </Style>
+
+
+        <SolidColorBrush x:Key="Browse.Button.Foreground" Color="#FF525252"/>
+        <SolidColorBrush x:Key="Browse.Button.Foreground.Hover" Color="Gray"/>
+        <SolidColorBrush x:Key="Browse.Button.Foreground.Pressed" Color="White"/>
+        <Style x:Key="BrowseBtn" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{StaticResource null}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource null}"/>
+            <Setter Property="TextElement.Foreground" Value="{DynamicResource Page.Button.Foreground}"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Impact"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="90"/>
+            <Setter Property="Margin" Value="0, 5, 0, 0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="TextElement.Foreground" Value="{DynamicResource Browse.Button.Foreground.Hover}"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="TextElement.Foreground" Value="{DynamicResource Browse.Button.Foreground.Pressed}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <SolidColorBrush x:Key="Details.Title.Foreground" Color="White"/>
+        <Style x:Key="DetailsTitle" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextWrapping" Value="NoWrap"/>
+            <Setter Property="TextTrimming" Value="None"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontFamily" Value="Impact"/>
+            <Setter Property="Foreground" Value="{DynamicResource Details.Title.Foreground}"/>
+        </Style>
+
+
+        <SolidColorBrush x:Key="Details.Page.Title.Foreground" Color="White"/>
+        <Style x:Key="DetailsPageTitle" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextWrapping" Value="NoWrap"/>
+            <Setter Property="TextTrimming" Value="None"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="FontFamily" Value="Impact"/>
+            <Setter Property="Foreground" Value="{DynamicResource Details.Page.Title.Foreground}"/>
+        </Style>
+
+
+        <SolidColorBrush x:Key="Details.Page.Text.Foreground" Color="White"/>
+        <Style x:Key="DetailsText" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextWrapping" Value="NoWrap"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Impact"/>
+            <Setter Property="TextTrimming" Value="WordEllipsis"/>
+            <Setter Property="Foreground" Value="{DynamicResource Details.Page.Text.Foreground}"/>
+        </Style>
+    </Application.Resources>
+</Application>
