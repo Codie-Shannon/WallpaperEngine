@@ -4,8 +4,12 @@ A WPF application where you can set a single monitor wallpaper in the format of 
 
 
 # What I Learned
+* Arrays
+* C# DLL Import
+* C# Open File Dialog (File Picker)
 * Child Windows
 * Dispatcher Timer
+* Enumeration Types
 * Finding a Window or Getting the Next Window using Win32 API
 * Getting Monitor Count using Windows Forms
 * Getting Primary Screen Dimensions using System Parameters Class
@@ -13,9 +17,11 @@ A WPF application where you can set a single monitor wallpaper in the format of 
 * Setting a Parent Window using Win32 API
 * Spawning Worker Window using Win32 API
 * System Commands
+* System Threading
 * WPF
 * WPF Application Settings to Save and Load User Data
 * WPF Styles
+* WPF Windows
 
 
 # Copyright
